@@ -1,0 +1,129 @@
+{
+  "_readme": "This is the ONLY file you need to edit to change the website. Ask Claude to update it for you. Everything below shows up on the page.",
+
+  "site": {
+    "organization": "The AI Fund",
+    "eyebrow": "Fall 2026 Donor Visits",
+    "headline": "Come see the work up close",
+    "intro": "We're hosting a handful of small-group visits this October and November. Each one is a different window into what your support makes possible. Take a look, then tell us which one you'd like to join — we'll follow up with details and confirm your spot.",
+    "closingNote": "Questions? Reply to the email that brought you here, or reach out to Rebecca directly.",
+    "contactEmail": "rebecca@example.org",
+    "accentColor": "#1f6f5c",
+    "heroImage": ""
+  },
+
+  "form": {
+    "endpoint": "",
+    "_endpointHelp": "Paste your Google Apps Script Web App URL here once you've deployed it (see apps-script/SETUP.md). Until then the form shows a friendly 'not open yet' message instead of failing.",
+    "askForGuestCount": true,
+    "askForNotes": true,
+    "notesLabel": "Anything we should know? (dietary needs, accessibility, questions)",
+    "successHeadline": "Thank you — we've got it.",
+    "successBody": "Rebecca will be in touch within a few days to confirm your spot and share the details."
+  },
+
+  "tours": [
+    {
+      "id": "tour-1",
+      "title": "Tour Option One",
+      "date": "Thursday, October 8, 2026",
+      "time": "10:00 AM – 1:00 PM",
+      "location": "City, State",
+      "image": "",
+      "imageAlt": "",
+      "capacity": "12 guests",
+      "summary": "One or two sentences on what this visit is and why someone would pick it. Replace this text.",
+      "highlights": [
+        "First thing guests will see or do",
+        "Second thing",
+        "Third thing"
+      ],
+      "hostedBy": "Name, Title"
+    },
+    {
+      "id": "tour-2",
+      "title": "Tour Option Two",
+      "date": "Tuesday, October 20, 2026",
+      "time": "1:00 PM – 4:00 PM",
+      "location": "City, State",
+      "image": "",
+      "imageAlt": "",
+      "capacity": "10 guests",
+      "summary": "One or two sentences on what this visit is and why someone would pick it. Replace this text.",
+      "highlights": [
+        "First thing guests will see or do",
+        "Second thing",
+        "Third thing"
+      ],
+      "hostedBy": "Name, Title"
+    },
+    {
+      "id": "tour-3",
+      "title": "Tour Option Three",
+      "date": "Saturday, October 31, 2026",
+      "time": "9:00 AM – 12:00 PM",
+      "location": "City, State",
+      "image": "",
+      "imageAlt": "",
+      "capacity": "20 guests",
+      "summary": "One or two sentences on what this visit is and why someone would pick it. Replace this text.",
+      "highlights": [
+        "First thing guests will see or do",
+        "Second thing",
+        "Third thing"
+      ],
+      "hostedBy": "Name, Title"
+    },
+    {
+      "id": "tour-4",
+      "title": "Tour Option Four",
+      "date": "Wednesday, November 11, 2026",
+      "time": "11:00 AM – 2:00 PM",
+      "location": "City, State",
+      "image": "",
+      "imageAlt": "",
+      "capacity": "15 guests",
+      "summary": "One or two sentences on what this visit is and why someone would pick it. Replace this text.",
+      "highlights": [
+        "First thing guests will see or do",
+        "Second thing",
+        "Third thing"
+      ],
+      "hostedBy": "Name, Title"
+    },
+    {
+      "id": "tour-5",
+      "title": "Tour Option Five",
+      "date": "Thursday, November 19, 2026",
+      "time": "2:00 PM – 5:00 PM",
+      "location": "City, State",
+      "image": "",
+      "imageAlt": "",
+      "capacity": "8 guests",
+      "summary": "One or two sentences on what this visit is and why someone would pick it. Replace this text.",
+      "highlights": [
+        "First thing guests will see or do",
+        "Second thing",
+        "Third thing"
+      ],
+      "hostedBy": "Name, Title"
+    },
+    {
+      "id": "tour-6",
+      "title": "Tour Option Six",
+      "date": "Monday, November 30, 2026",
+      "time": "10:00 AM – 1:00 PM",
+      "location": "City, State",
+      "image": "",
+      "imageAlt": "",
+      "capacity": "12 guests",
+      "summary": "One or two sentences on what this visit is and why someone would pick it. Replace this text.",
+      "highlights": [
+        "First thing guests will see or do",
+        "Second thing",
+        "Third thing"
+      ],
+      "hostedBy": "Name, Title"
+    }
+  ]
+}
