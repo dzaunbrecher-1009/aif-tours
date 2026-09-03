@@ -8,6 +8,8 @@
   --accent:#1f6f5c;
   --accent-soft:rgba(31,111,92,.08);
   --accent-line:rgba(31,111,92,.22);
+  --accent2:#ec8b00;
+  --mint:#eef4f0;
   --ink:#1a1917;
   --ink-2:#57534e;
   --ink-3:#8a837c;
@@ -93,15 +95,29 @@ h1{
 /* ---------- sections ---------- */
 section{padding:64px 0}
 .section-h{
-  margin:0;
+  margin:0 0 4px;
   font-family:Fraunces, Georgia, serif;
   font-weight:600;
   font-size:30px;
   letter-spacing:-.01em;
 }
+.section-h::before{
+  content:"";
+  display:block;
+  width:36px;height:4px;
+  border-radius:2px;
+  background:var(--accent2);
+  margin-bottom:16px;
+}
 .section-sub{margin:8px 0 32px;color:var(--ink-2)}
 
 /* ---------- picker ---------- */
+#picker{
+  background:var(--mint);
+  border-radius:22px;
+  padding:48px 40px 52px;
+  margin:8px 0 0;
+}
 .roles{
   display:grid;
   grid-template-columns:repeat(2, 1fr);
@@ -365,6 +381,7 @@ button[type=submit]:disabled{opacity:.5;cursor:default}
   section{padding:48px 0}
   .row{grid-template-columns:1fr}
   .card-form{padding:24px}
+  #picker{padding:36px 22px 40px;border-radius:18px}
 }
 
 @media (prefers-reduced-motion:reduce){

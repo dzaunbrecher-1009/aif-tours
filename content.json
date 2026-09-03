@@ -4,12 +4,12 @@
   "site": {
     "organization": "The AI Fund",
     "eyebrow": "Fall 2026 Partner Visits",
-    "headline": "Come see the work up close",
-    "intro": "We're hosting a handful of small-group visits this fall. Each one is a different window into what your support makes possible. Tell us a bit about yourself, then take a look and let us know which one you'd like to join — we'll follow up with details and confirm your spot.",
-    "closingNote": "Questions? Email us at",
+    "headline": "New Orleans is leading the way on AI in K-12 education",
+    "intro": "This fall we're opening our classrooms to a small group of partners at a time. Tell us a bit about yourself, then take a look and let us know which visit you'd like to join — we'll follow up with details and confirm your spot.",
+    "closingNote": "Questions?",
     "contactEmail": "davis@nolaed.ai",
     "accentColor": "#1f6f5c",
-    "heroImage": "",
+    "heroImage": "images/hero.jpg",
     "logo": "images/nolaed-logo.png",
     "logoAlt": "The New Orleans AI Education Fund — Empowering Students and Educators to Lead on AI"
   },
