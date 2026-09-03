@@ -53,6 +53,19 @@ git add -A && git commit -m "Update tour dates" && git push
 | `accentColor` | Hex color used for buttons, links, selected cards |
 | `heroImage` | Optional. A URL or `images/filename.jpg`. Adds a full-bleed photo behind the headline with a dark overlay |
 
+`picker` — the "I am a..." step shown before any visits appear
+| field | what it does |
+|---|---|
+| `heading` | Heading above the four options |
+| `subhead` | Line under that heading |
+
+`audiences` — an array, one entry per option in the picker. Order here is the order they appear in.
+| field | what it does |
+|---|---|
+| `id` | Short unique slug. Used to match this audience against each tour's `audiences` list — **don't change it once it's referenced by a tour** |
+| `label` | What shows on the button, and in "Visits for ___" once picked |
+| `mark` | One or two letters shown in the little circle on the button |
+
 `form`
 | field | what it does |
 |---|---|
@@ -74,6 +87,9 @@ git add -A && git commit -m "Update tour dates" && git push
 | `summary` | One or two sentences |
 | `highlights` | Array of short bullet strings. Use `[]` for none |
 | `hostedBy` | Name and title, or `""` |
+| `audiences` | Array of audience `id`s (from the top-level `audiences` list) who should see this visit. A visit can list more than one — e.g. `["elected", "educator"]`. Leave the array empty (or omit the field) and every audience sees it |
+
+Visitors pick one option from `audiences` before the grid appears, and only see tours tagged for that option. The form also records which option they picked, in a new "Audience" column in the response spreadsheet — if the Google Sheet was already set up before this changed, its `Code.gs` needs to be re-pasted and redeployed (see `apps-script/SETUP.md`, "If you change the script later") for that column to start filling in.
 
 ## Photos
 

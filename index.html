@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<a class="skip" href="#tours">Skip to the options</a>
+<a class="skip" href="#picker">Skip to the options</a>
 
 <header class="hero" id="hero">
   <div class="wrap">
@@ -25,9 +25,21 @@
 
 <main class="wrap">
 
-  <section id="tours" aria-labelledby="tours-h">
-    <h2 id="tours-h" class="section-h">Choose a visit</h2>
-    <p class="section-sub">Pick the one you'd most like to attend. You can also mark others you'd consider.</p>
+  <section id="picker" aria-labelledby="picker-h">
+    <h2 id="picker-h" class="section-h"></h2>
+    <p class="section-sub" id="picker-sub"></p>
+
+    <div class="audience-bar" id="audience-bar">
+      <p>Showing visits for <strong id="audience-bar-label"></strong></p>
+      <button type="button" id="change-audience">Choose a different group</button>
+    </div>
+
+    <div class="roles" id="roles" role="list"></div>
+  </section>
+
+  <section id="tours" aria-labelledby="tours-h" hidden>
+    <h2 id="tours-h" class="section-h"></h2>
+    <p class="section-sub" id="tours-sub"></p>
     <div class="grid" id="grid" role="list"></div>
   </section>
 

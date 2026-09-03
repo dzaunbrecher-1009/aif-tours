@@ -95,6 +95,75 @@ section{padding:64px 0}
 }
 .section-sub{margin:8px 0 32px;color:var(--ink-2)}
 
+/* ---------- picker ---------- */
+.roles{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:18px;
+  margin-top:4px;
+}
+.role{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  text-align:left;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:20px 22px;
+  cursor:pointer;
+  font:inherit;
+  color:inherit;
+  transition:box-shadow .18s ease, border-color .18s ease, transform .18s ease;
+}
+.role:hover{box-shadow:var(--shadow-lift);transform:translateY(-2px)}
+.role:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.role-mark{
+  flex:none;
+  width:44px;height:44px;
+  border-radius:50%;
+  background:var(--accent-soft);
+  color:var(--accent);
+  display:flex;align-items:center;justify-content:center;
+  font-family:Fraunces, Georgia, serif;
+  font-weight:600;font-size:14px;letter-spacing:.02em;
+}
+.role-label{
+  font-family:Fraunces, Georgia, serif;
+  font-weight:600;font-size:18px;
+}
+
+.audience-bar{
+  display:none;
+  align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  background:var(--accent-soft);
+  border:1px solid var(--accent-line);
+  border-radius:12px;
+  padding:16px 20px;
+  margin-bottom:28px;
+}
+.audience-bar.on{display:flex}
+.audience-bar p{margin:0;font-size:15px}
+.audience-bar strong{font-weight:600}
+.audience-bar button{
+  background:none;
+  border:1px solid var(--accent-line);
+  border-radius:8px;
+  padding:8px 14px;
+  font:500 13.5px/1 Inter, system-ui, sans-serif;
+  color:var(--accent);
+  cursor:pointer;
+  white-space:nowrap;
+}
+.audience-bar button:hover{background:#fff}
+
+#picker.answered .roles{display:none}
+
+@media (max-width:640px){
+  .roles{grid-template-columns:1fr}
+}
+
 /* ---------- cards ---------- */
 .grid{
   display:grid;

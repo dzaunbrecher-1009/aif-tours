@@ -5,12 +5,24 @@
     "organization": "The AI Fund",
     "eyebrow": "Fall 2026 Donor Visits",
     "headline": "Come see the work up close",
-    "intro": "We're hosting a handful of small-group visits this October and November. Each one is a different window into what your support makes possible. Take a look, then tell us which one you'd like to join — we'll follow up with details and confirm your spot.",
+    "intro": "We're hosting a handful of small-group visits this fall. Each one is a different window into what your support makes possible. Tell us a bit about yourself, then take a look and let us know which one you'd like to join — we'll follow up with details and confirm your spot.",
     "closingNote": "Questions? Reply to the email that brought you here, or reach out to Rebecca directly.",
     "contactEmail": "rebecca@example.org",
     "accentColor": "#1f6f5c",
     "heroImage": ""
   },
+
+  "picker": {
+    "heading": "I am a...",
+    "subhead": "Pick whichever fits best. You can change your answer at any time."
+  },
+
+  "audiences": [
+    { "id": "elected", "label": "Elected Official", "mark": "EO" },
+    { "id": "educator", "label": "Fellow Educator", "mark": "FE" },
+    { "id": "funder", "label": "Funder", "mark": "FN" },
+    { "id": "partner", "label": "Other Interested Community Partner", "mark": "CP" }
+  ],
 
   "form": {
     "endpoint": "",
@@ -24,106 +36,88 @@
 
   "tours": [
     {
-      "id": "tour-1",
-      "title": "Tour Option One",
-      "date": "Thursday, October 8, 2026",
-      "time": "10:00 AM – 1:00 PM",
-      "location": "City, State",
+      "id": "sept28-carver",
+      "title": "Visit at George W. Carver",
+      "date": "Monday, September 28, 2026",
+      "time": "",
+      "location": "George W. Carver",
       "image": "",
       "imageAlt": "",
-      "capacity": "12 guests",
-      "summary": "One or two sentences on what this visit is and why someone would pick it. Replace this text.",
-      "highlights": [
-        "First thing guests will see or do",
-        "Second thing",
-        "Third thing"
-      ],
-      "hostedBy": "Name, Title"
+      "capacity": "",
+      "summary": "",
+      "highlights": [],
+      "hostedBy": "",
+      "audiences": ["elected", "educator", "partner"]
     },
     {
-      "id": "tour-2",
-      "title": "Tour Option Two",
-      "date": "Tuesday, October 20, 2026",
-      "time": "1:00 PM – 4:00 PM",
-      "location": "City, State",
+      "id": "oct2-carver",
+      "title": "Visit at George W. Carver",
+      "date": "Friday, October 2, 2026",
+      "time": "",
+      "location": "George W. Carver",
       "image": "",
       "imageAlt": "",
-      "capacity": "10 guests",
-      "summary": "One or two sentences on what this visit is and why someone would pick it. Replace this text.",
-      "highlights": [
-        "First thing guests will see or do",
-        "Second thing",
-        "Third thing"
-      ],
-      "hostedBy": "Name, Title"
+      "capacity": "",
+      "summary": "",
+      "highlights": [],
+      "hostedBy": "",
+      "audiences": ["elected", "educator", "partner"]
     },
     {
-      "id": "tour-3",
-      "title": "Tour Option Three",
-      "date": "Saturday, October 31, 2026",
-      "time": "9:00 AM – 12:00 PM",
-      "location": "City, State",
+      "id": "oct28-franklin",
+      "title": "Visit at Ben Franklin High School",
+      "date": "Wednesday, October 28, 2026",
+      "time": "",
+      "location": "Ben Franklin High School",
       "image": "",
       "imageAlt": "",
-      "capacity": "20 guests",
-      "summary": "One or two sentences on what this visit is and why someone would pick it. Replace this text.",
-      "highlights": [
-        "First thing guests will see or do",
-        "Second thing",
-        "Third thing"
-      ],
-      "hostedBy": "Name, Title"
+      "capacity": "",
+      "summary": "",
+      "highlights": [],
+      "hostedBy": "",
+      "audiences": ["funder"]
     },
     {
-      "id": "tour-4",
-      "title": "Tour Option Four",
-      "date": "Wednesday, November 11, 2026",
-      "time": "11:00 AM – 2:00 PM",
-      "location": "City, State",
+      "id": "oct30-franklin",
+      "title": "Visit at Ben Franklin High School",
+      "date": "Friday, October 30, 2026",
+      "time": "",
+      "location": "Ben Franklin High School",
       "image": "",
       "imageAlt": "",
-      "capacity": "15 guests",
-      "summary": "One or two sentences on what this visit is and why someone would pick it. Replace this text.",
-      "highlights": [
-        "First thing guests will see or do",
-        "Second thing",
-        "Third thing"
-      ],
-      "hostedBy": "Name, Title"
+      "capacity": "",
+      "summary": "",
+      "highlights": [],
+      "hostedBy": "",
+      "audiences": ["funder"]
     },
     {
-      "id": "tour-5",
-      "title": "Tour Option Five",
-      "date": "Thursday, November 19, 2026",
-      "time": "2:00 PM – 5:00 PM",
-      "location": "City, State",
+      "id": "nov10-firstline",
+      "title": "Visit at a Firstline School",
+      "date": "Tuesday, November 10, 2026",
+      "time": "",
+      "location": "A Firstline School",
       "image": "",
       "imageAlt": "",
-      "capacity": "8 guests",
-      "summary": "One or two sentences on what this visit is and why someone would pick it. Replace this text.",
-      "highlights": [
-        "First thing guests will see or do",
-        "Second thing",
-        "Third thing"
-      ],
-      "hostedBy": "Name, Title"
+      "capacity": "",
+      "summary": "",
+      "highlights": [],
+      "hostedBy": "",
+      "audiences": ["elected", "educator", "funder", "partner"]
     },
     {
-      "id": "tour-6",
-      "title": "Tour Option Six",
-      "date": "Monday, November 30, 2026",
-      "time": "10:00 AM – 1:00 PM",
-      "location": "City, State",
+      "id": "nov12-firstline",
+      "title": "Visit at a Firstline School",
+      "date": "Thursday, November 12, 2026",
+      "time": "",
+      "location": "A Firstline School",
       "image": "",
       "imageAlt": "",
-      "capacity": "12 guests",
-      "summary": "One or two sentences on what this visit is and why someone would pick it. Replace this text.",
-      "highlights": [
-        "First thing guests will see or do",
-        "Second thing",
-        "Third thing"
-      ],
-      "hostedBy": "Name, Title"
+      "capacity": "",
+      "summary": "",
+      "highlights": [],
+      "hostedBy": "",
+      "audiences": ["elected", "educator", "funder", "partner"]
     }
   ]
 }
