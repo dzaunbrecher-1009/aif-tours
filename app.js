@@ -1,6 +1,12 @@
 /* ---------------------------------------------------------------
    Page logic. Reads content.json and builds the page from it.
    You normally won't need to edit this file — change content.json.
+
+   Two pages share this file:
+   - index.html ("I am a...")  -> renderHome()
+   - visits.html (the visits + RSVP form, reached after picking
+     a group) -> renderVisits()
+   The <body data-page="..."> attribute says which one is loaded.
    --------------------------------------------------------------- */
 
 (function () {
@@ -38,25 +44,55 @@
         throw new Error('content.json is not valid JSON: ' + e.message);
       }
       state.content = data;
-      render(data);
+
+      var site = data.site || {};
+      applyAccent(site);
+      applyLogo(site);
+      applyFooter(site);
+
+      if (document.body.dataset.page === 'visits') {
+        renderVisits(data);
+      } else {
+        renderHome(data);
+      }
     })
     .catch(function (e) { bootFail(e.message); });
 
-  // ---- render --------------------------------------------------------
+  // ---- shared chrome (both pages) -------------------------------------
 
-  function render(c) {
+  function applyAccent(site) {
+    if (!has(site.accentColor)) return;
+    var a = site.accentColor.trim();
+    document.documentElement.style.setProperty('--accent', a);
+    document.documentElement.style.setProperty('--accent-soft', hexA(a, 0.08));
+    document.documentElement.style.setProperty('--accent-line', hexA(a, 0.22));
+  }
+
+  function applyLogo(site) {
+    if (!has(site.logo)) return;
+    var logo = $('logo');
+    logo.src = site.logo;
+    logo.alt = has(site.logoAlt) ? site.logoAlt : site.organization || '';
+    logo.hidden = false;
+  }
+
+  function applyFooter(site) {
+    $('closing').textContent = site.closingNote || '';
+    var contact = $('contact');
+    if (has(site.contactEmail)) {
+      contact.href = 'mailto:' + site.contactEmail;
+      contact.textContent = site.contactEmail;
+    } else {
+      contact.parentNode.hidden = true;
+    }
+  }
+
+  // ---- home page: "I am a..." -----------------------------------------
+
+  function renderHome(c) {
     var site = c.site || {};
     var picker = c.picker || {};
-    var form = c.form || {};
     var audiences = Array.isArray(c.audiences) ? c.audiences : [];
-    var tours = Array.isArray(c.tours) ? c.tours : [];
-
-    if (has(site.accentColor)) {
-      var a = site.accentColor.trim();
-      document.documentElement.style.setProperty('--accent', a);
-      document.documentElement.style.setProperty('--accent-soft', hexA(a, 0.08));
-      document.documentElement.style.setProperty('--accent-line', hexA(a, 0.22));
-    }
 
     document.title = (has(site.headline) ? site.headline : 'Visits') +
       (has(site.organization) ? ' — ' + site.organization : '');
@@ -71,13 +107,61 @@
       hero.style.backgroundImage = 'url("' + site.heroImage.replace(/"/g, '') + '")';
     }
 
-    $('closing').textContent = site.closingNote || '';
-    var contact = $('contact');
-    if (has(site.contactEmail)) {
-      contact.href = 'mailto:' + site.contactEmail;
-      contact.textContent = site.contactEmail;
+    $('picker-h').textContent = picker.heading || 'I am a...';
+    $('picker-sub').textContent = picker.subhead || 'Pick whichever fits best.';
+
+    $('roles').innerHTML = audiences.map(function (a) {
+      return '' +
+        '<button type="button" class="role" role="listitem" data-audience="' + esc(a.id) + '">' +
+          '<span class="role-mark" aria-hidden="true">' + esc(a.mark || '') + '</span>' +
+          '<span class="role-label">' + esc(a.label || '') + '</span>' +
+        '</button>';
+    }).join('');
+
+    $('roles').addEventListener('click', function (e) {
+      var btn = e.target.closest('.role');
+      if (!btn) return;
+      location.href = 'visits.html?audience=' + encodeURIComponent(btn.dataset.audience);
+    });
+  }
+
+  // ---- visits page: filtered grid + RSVP -------------------------------
+
+  function renderVisits(c) {
+    var site = c.site || {};
+    var form = c.form || {};
+    var audiences = Array.isArray(c.audiences) ? c.audiences : [];
+    var tours = Array.isArray(c.tours) ? c.tours : [];
+
+    var id = new URLSearchParams(location.search).get('audience');
+    var a = audienceById(audiences, id);
+    if (!a) {
+      location.href = 'index.html';
+      return;
+    }
+    state.audience = a;
+
+    document.title = 'Visits for ' + a.label + (has(site.organization) ? ' — ' + site.organization : '');
+
+    $('visits-h').textContent = 'Visits for ' + a.label;
+
+    var matches = tours.filter(function (t) {
+      return !Array.isArray(t.audiences) || !t.audiences.length || t.audiences.indexOf(a.id) !== -1;
+    });
+
+    $('visits-sub').textContent = matches.length
+      ? 'Pick the one you’d most like to attend. You can also mark others you’d consider.'
+      : 'There aren’t any visits open to this group yet — check back soon.';
+
+    var grid = $('grid');
+    if (!matches.length) {
+      grid.innerHTML = '';
+      $('rsvp').hidden = true;
     } else {
-      contact.parentNode.hidden = true;
+      grid.innerHTML = matches.map(card).join('');
+      grid.addEventListener('click', onGridClick);
+      grid.addEventListener('change', onGridChange);
+      $('rsvp').hidden = false;
     }
 
     // form field visibility / labels
@@ -91,42 +175,7 @@
       ? ''
       : 'Heads up: responses aren’t being collected yet — the form isn’t connected to the spreadsheet.';
 
-    // picker
-    $('picker-h').textContent = picker.heading || 'I am a...';
-    $('picker-sub').textContent = picker.subhead || 'Pick whichever fits best.';
-    renderRoles(audiences);
-
-    $('roles').addEventListener('click', onRoleClick);
-    $('change-audience').addEventListener('click', onChangeAudience);
-
     $('form').addEventListener('submit', onSubmit);
-
-    function onRoleClick(e) {
-      var btn = e.target.closest('.role');
-      if (!btn) return;
-      selectAudience(btn.dataset.audience, audiences, tours);
-    }
-
-    function onChangeAudience() {
-      state.audience = null;
-      state.choice = null;
-      state.maybes = {};
-      $('picker').classList.remove('answered');
-      $('audience-bar').classList.remove('on');
-      $('tours').hidden = true;
-      updateChosen();
-      $('picker').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
-
-  function renderRoles(audiences) {
-    $('roles').innerHTML = audiences.map(function (a) {
-      return '' +
-        '<button type="button" class="role" role="listitem" data-audience="' + esc(a.id) + '">' +
-          '<span class="role-mark" aria-hidden="true">' + esc(a.mark || '') + '</span>' +
-          '<span class="role-label">' + esc(a.label || '') + '</span>' +
-        '</button>';
-    }).join('');
   }
 
   function audienceById(audiences, id) {
@@ -134,42 +183,6 @@
       if (audiences[i].id === id) return audiences[i];
     }
     return null;
-  }
-
-  function selectAudience(id, audiences, tours) {
-    var a = audienceById(audiences, id);
-    if (!a) return;
-
-    state.audience = a;
-    state.choice = null;
-    state.maybes = {};
-    updateChosen();
-
-    $('picker').classList.add('answered');
-    $('audience-bar').classList.add('on');
-    $('audience-bar-label').textContent = a.label;
-
-    var matches = tours.filter(function (t) {
-      return !Array.isArray(t.audiences) || !t.audiences.length || t.audiences.indexOf(id) !== -1;
-    });
-
-    $('tours-h').textContent = 'Visits for ' + a.label;
-    $('tours-sub').textContent = matches.length
-      ? 'Pick the one you’d most like to attend. You can also mark others you’d consider.'
-      : '';
-
-    var grid = $('grid');
-    if (!matches.length) {
-      grid.innerHTML = '<p style="color:var(--ink-3)">No visits are open to this group yet.</p>';
-    } else {
-      grid.innerHTML = matches.map(card).join('');
-      grid.addEventListener('click', onGridClick);
-      grid.addEventListener('change', onGridChange);
-    }
-
-    var tours_el = $('tours');
-    tours_el.hidden = false;
-    tours_el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   function card(t, i) {
@@ -276,7 +289,6 @@
     var name = $('f-name').value.trim();
     var email = $('f-email').value.trim();
 
-    if (!state.audience) return fail('Please tell us who you are above before choosing a visit.');
     if (!state.choice) return fail('Please choose a first choice above before sending.');
     if (!name) return fail('Please add your name.');
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return fail('Please add a valid email address.');

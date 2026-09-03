@@ -6,10 +6,12 @@
     "eyebrow": "Fall 2026 Donor Visits",
     "headline": "Come see the work up close",
     "intro": "We're hosting a handful of small-group visits this fall. Each one is a different window into what your support makes possible. Tell us a bit about yourself, then take a look and let us know which one you'd like to join — we'll follow up with details and confirm your spot.",
-    "closingNote": "Questions? Reply to the email that brought you here, or reach out to Rebecca directly.",
-    "contactEmail": "rebecca@example.org",
+    "closingNote": "Questions? Email us at",
+    "contactEmail": "davis@nolaed.ai",
     "accentColor": "#1f6f5c",
-    "heroImage": ""
+    "heroImage": "",
+    "logo": "images/nolaed-logo.png",
+    "logoAlt": "The New Orleans AI Education Fund — Empowering Students and Educators to Lead on AI"
   },
 
   "picker": {

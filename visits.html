@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Visits</title>
+<meta name="description" content="Pick the visit you'd like to join.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f6f5c'/%3E%3Cpath d='M9 16.5l4.5 4.5L23 11.5' stroke='white' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="visits">
+
+<a class="skip" href="#grid">Skip to the visits</a>
+
+<header class="hero subhero" id="hero">
+  <div class="wrap">
+    <img class="logo" id="logo" src="" alt="" hidden>
+    <a class="back-link" id="back-link" href="index.html">‹ Choose a different group</a>
+    <h1 id="visits-h" class="page-title"></h1>
+    <p class="intro" id="visits-sub"></p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="tours-section" aria-labelledby="visits-h">
+    <div class="grid" id="grid" role="list"></div>
+  </section>
+
+  <section id="rsvp" aria-labelledby="rsvp-h" hidden>
+    <div class="card-form">
+      <h2 id="rsvp-h">Tell us your preference</h2>
+
+      <div class="chosen" id="chosen" aria-live="polite">
+        <span class="chosen-empty">No visit selected yet — choose one above.</span>
+      </div>
+
+      <form id="form" novalidate>
+        <div class="row">
+          <label for="f-name">Your name <span class="req">*</span>
+            <input id="f-name" name="name" type="text" autocomplete="name" required>
+          </label>
+          <label for="f-email">Email <span class="req">*</span>
+            <input id="f-email" name="email" type="email" autocomplete="email" required>
+          </label>
+        </div>
+
+        <div class="row" id="row-extra">
+          <label for="f-guests" id="lbl-guests">Number of guests (including you)
+            <input id="f-guests" name="guests" type="number" min="1" max="20" value="1" inputmode="numeric">
+          </label>
+        </div>
+
+        <label for="f-notes" id="lbl-notes" class="full">Notes
+          <textarea id="f-notes" name="notes" rows="3"></textarea>
+        </label>
+
+        <p class="err" id="err" role="alert" hidden></p>
+
+        <button type="submit" id="submit">Send my preference</button>
+        <p class="fineprint" id="fineprint"></p>
+      </form>
+
+      <div class="done" id="done" hidden>
+        <div class="done-mark" aria-hidden="true">&#10003;</div>
+        <h3 id="done-h"></h3>
+        <p id="done-b"></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p id="closing"></p>
+    <p><a id="contact" href="#"></a></p>
+  </div>
+</footer>
+
+<div class="boot-error" id="boot-error" hidden>
+  <div>
+    <h2>The page couldn't load its content.</h2>
+    <p id="boot-msg"></p>
+    <p class="boot-hint">This almost always means <code>content.json</code> has a typo. Ask Claude to check it.</p>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -63,6 +63,12 @@ img{max-width:100%;display:block}
 .hero.has-image .eyebrow{color:rgba(255,255,255,.85)}
 .hero.has-image .intro{color:rgba(255,255,255,.92)}
 
+.logo{
+  height:48px;
+  width:auto;
+  margin:0 0 32px;
+}
+
 .eyebrow{
   margin:0 0 14px;
   font-size:13px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
@@ -134,35 +140,29 @@ section{padding:64px 0}
   font-weight:600;font-size:18px;
 }
 
-.audience-bar{
-  display:none;
-  align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
-  background:var(--accent-soft);
-  border:1px solid var(--accent-line);
-  border-radius:12px;
-  padding:16px 20px;
-  margin-bottom:28px;
-}
-.audience-bar.on{display:flex}
-.audience-bar p{margin:0;font-size:15px}
-.audience-bar strong{font-weight:600}
-.audience-bar button{
-  background:none;
-  border:1px solid var(--accent-line);
-  border-radius:8px;
-  padding:8px 14px;
-  font:500 13.5px/1 Inter, system-ui, sans-serif;
-  color:var(--accent);
-  cursor:pointer;
-  white-space:nowrap;
-}
-.audience-bar button:hover{background:#fff}
-
-#picker.answered .roles{display:none}
-
 @media (max-width:640px){
   .roles{grid-template-columns:1fr}
 }
+
+/* ---------- visits page header ---------- */
+.subhero{padding:56px 0 40px}
+.back-link{
+  display:inline-block;
+  margin-bottom:20px;
+  font-size:14px;font-weight:500;
+  color:var(--ink-2);
+  text-decoration:none;
+}
+.back-link:hover{color:var(--accent)}
+.page-title{
+  margin:0 0 10px;
+  font-family:Fraunces, Georgia, "Times New Roman", serif;
+  font-weight:600;
+  font-size:clamp(28px,4.2vw,42px);
+  line-height:1.15;
+  letter-spacing:-.01em;
+}
+#tours-section{padding-top:0}
 
 /* ---------- cards ---------- */
 .grid{

@@ -12,6 +12,14 @@ talking to is not a developer and does not want to read code.
 - `app.js` fetches that file at page load and builds the page from it.
 - `styles.css` holds the design.
 - There is no build step and no framework. Vercel serves the files as-is.
+- There are two pages, both built from the same `content.json` and both
+  loading the same `app.js` (it checks `<body data-page="...">` to know which
+  one it's on):
+  - `index.html` — the "I am a..." picker. Nothing else. Clicking an option
+    sends the visitor to...
+  - `visits.html` — reached as `visits.html?audience=<id>`. Shows the visits
+    tagged for that audience and the RSVP form together, plus a link back to
+    `index.html` to pick a different group.
 
 ## The rule that matters
 
@@ -52,6 +60,8 @@ git add -A && git commit -m "Update tour dates" && git push
 | `contactEmail` | Footer mailto link, and the fallback if the form is unconnected |
 | `accentColor` | Hex color used for buttons, links, selected cards |
 | `heroImage` | Optional. A URL or `images/filename.jpg`. Adds a full-bleed photo behind the headline with a dark overlay |
+| `logo` | Optional. `images/filename.png` or a full URL. Shown at the top of both pages above the eyebrow. Leave empty to hide it |
+| `logoAlt` | Alt text for the logo. Falls back to `organization` if left empty |
 
 `picker` — the "I am a..." step shown before any visits appear
 | field | what it does |
