@@ -21,18 +21,19 @@
   },
 
   "audiences": [
-    { "id": "elected", "label": "Elected Official", "mark": "EO" },
-    { "id": "educator", "label": "Fellow Educator", "mark": "FE" },
-    { "id": "funder", "label": "Funder", "mark": "FN" },
-    { "id": "partner", "label": "Other Interested Community Partner", "mark": "CP" }
+    { "id": "elected", "label": "Elected Official", "pluralLabel": "Elected Officials", "mark": "EO" },
+    { "id": "educator", "label": "Fellow Educator", "pluralLabel": "Fellow Educators", "mark": "FE" },
+    { "id": "funder", "label": "Funder", "pluralLabel": "Funders", "mark": "FN" },
+    { "id": "partner", "label": "Other Interested Community Partner", "pluralLabel": "Other Interested Community Partners", "mark": "CP" }
   ],
 
   "form": {
     "endpoint": "",
     "_endpointHelp": "Paste your Google Apps Script Web App URL here once you've deployed it (see apps-script/SETUP.md). Until then the form shows a friendly 'not open yet' message instead of failing.",
     "askForGuestCount": true,
+    "maxGuests": 10,
     "askForNotes": true,
-    "notesLabel": "Anything we should know? (dietary needs, accessibility, questions)",
+    "notesLabel": "Anything we should know? (accessibility, questions)",
     "successHeadline": "Thank you — we've got it.",
     "successBody": "Rebecca will be in touch within a few days to confirm your spot and share the details."
   },
@@ -44,6 +45,7 @@
       "date": "Monday, September 28, 2026",
       "time": "8:30 AM – 10:00 AM",
       "location": "George W. Carver",
+      "badge": "Coursemojo at George W. Carver High School",
       "image": "images/carver.jpg",
       "imageAlt": "George Washington Carver High School building exterior",
       "capacity": "",
@@ -58,6 +60,7 @@
       "date": "Friday, October 2, 2026",
       "time": "8:30 AM – 10:00 AM",
       "location": "George W. Carver",
+      "badge": "Coursemojo at George W. Carver High School",
       "image": "images/carver.jpg",
       "imageAlt": "George Washington Carver High School building exterior",
       "capacity": "",
@@ -72,6 +75,7 @@
       "date": "Wednesday, October 28, 2026",
       "time": "8:30 AM – 10:00 AM",
       "location": "Ben Franklin High School",
+      "badge": "AI Literacy at Ben Franklin High School",
       "image": "images/ben-franklin.jpg",
       "imageAlt": "Benjamin Franklin High School building exterior",
       "capacity": "",
@@ -86,6 +90,7 @@
       "date": "Friday, October 30, 2026",
       "time": "8:30 AM – 10:00 AM",
       "location": "Ben Franklin High School",
+      "badge": "AI Literacy at Ben Franklin High School",
       "image": "images/ben-franklin.jpg",
       "imageAlt": "Benjamin Franklin High School building exterior",
       "capacity": "",
@@ -100,6 +105,7 @@
       "date": "Tuesday, November 10, 2026",
       "time": "8:30 AM – 10:00 AM",
       "location": "A Firstline School",
+      "badge": "Coursemojo at a Firstline Elementary School",
       "image": "images/arthur-ashe.jpg",
       "imageAlt": "Arthur Ashe Charter School building exterior",
       "capacity": "",
@@ -114,6 +120,7 @@
       "date": "Thursday, November 12, 2026",
       "time": "8:30 AM – 10:00 AM",
       "location": "A Firstline School",
+      "badge": "Coursemojo at a Firstline Elementary School",
       "image": "images/arthur-ashe.jpg",
       "imageAlt": "Arthur Ashe Charter School building exterior",
       "capacity": "",

@@ -149,9 +149,11 @@
     }
     state.audience = a;
 
-    document.title = 'Visits for ' + a.label + (has(site.organization) ? ' — ' + site.organization : '');
+    var audienceLabel = has(a.pluralLabel) ? a.pluralLabel : a.label;
 
-    $('visits-h').textContent = 'Visits for ' + a.label;
+    document.title = 'Visits for ' + audienceLabel + (has(site.organization) ? ' — ' + site.organization : '');
+
+    $('visits-h').textContent = 'Visits for ' + audienceLabel;
 
     var matches = tours.filter(function (t) {
       return !Array.isArray(t.audiences) || !t.audiences.length || t.audiences.indexOf(a.id) !== -1;
@@ -174,6 +176,7 @@
 
     // form field visibility / labels
     if (form.askForGuestCount === false) $('row-extra').hidden = true;
+    if (has(form.maxGuests) || typeof form.maxGuests === 'number') $('f-guests').max = form.maxGuests;
     if (form.askForNotes === false) {
       $('lbl-notes').hidden = true;
     } else if (has(form.notesLabel)) {
@@ -215,7 +218,7 @@
     return '' +
       '<article class="tour" role="listitem" data-id="' + esc(id) + '" data-title="' + esc(fullTitle) + '">' +
         '<div class="thumb">' + thumb +
-          (has(t.date) ? '<div class="datechip">' + esc(t.date) + '</div>' : '') +
+          (has(t.badge) ? '<div class="datechip">' + esc(t.badge) + '</div>' : '') +
         '</div>' +
         '<div class="tour-body">' +
           '<h3>' +
