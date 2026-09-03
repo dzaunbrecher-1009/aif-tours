@@ -80,10 +80,11 @@
     $('closing').textContent = site.closingNote || '';
     var contact = $('contact');
     if (has(site.contactEmail)) {
+      contact.hidden = false;
       contact.href = 'mailto:' + site.contactEmail;
       contact.textContent = site.contactEmail;
     } else {
-      contact.parentNode.hidden = true;
+      contact.hidden = true;
     }
   }
 
