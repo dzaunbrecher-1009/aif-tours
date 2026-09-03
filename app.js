@@ -71,7 +71,8 @@
   function applyLogo(site) {
     if (!has(site.logo)) return;
     var logo = $('logo');
-    logo.src = site.logo;
+    var onPhotoHero = document.body.dataset.page === 'home' && has(site.heroImage);
+    logo.src = (onPhotoHero && has(site.logoOnImage)) ? site.logoOnImage : site.logo;
     logo.alt = has(site.logoAlt) ? site.logoAlt : site.organization || '';
     logo.hidden = false;
   }
@@ -109,7 +110,13 @@
     }
 
     $('picker-h').textContent = picker.heading || 'I am a...';
-    $('picker-sub').textContent = picker.subhead || 'Pick whichever fits best.';
+    var pickerSub = $('picker-sub');
+    if (has(picker.subhead)) {
+      pickerSub.textContent = picker.subhead;
+      pickerSub.hidden = false;
+    } else {
+      pickerSub.hidden = true;
+    }
 
     $('roles').innerHTML = audiences.map(function (a) {
       return '' +
