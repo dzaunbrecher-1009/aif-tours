@@ -3,7 +3,7 @@
 A one-page site where donors look at the upcoming visits and tell us which one
 they'd like to attend. Responses land in a Google Sheet.
 
-Live at: _(add your Vercel URL here once it's deployed)_
+Live at: https://ai-2026-tours.vercel.app
 
 Responses spreadsheet: _(add the link here)_
 
