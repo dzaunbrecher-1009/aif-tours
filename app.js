@@ -210,13 +210,18 @@
         }).join('') + '</ul>'
       : '';
 
+    var fullTitle = has(t.date) ? (t.title || id) + ' — ' + t.date : (t.title || id);
+
     return '' +
-      '<article class="tour" role="listitem" data-id="' + esc(id) + '" data-title="' + esc(t.title || id) + '">' +
+      '<article class="tour" role="listitem" data-id="' + esc(id) + '" data-title="' + esc(fullTitle) + '">' +
         '<div class="thumb">' + thumb +
           (has(t.date) ? '<div class="datechip">' + esc(t.date) + '</div>' : '') +
         '</div>' +
         '<div class="tour-body">' +
-          '<h3>' + esc(t.title || 'Untitled visit') + '</h3>' +
+          '<h3>' +
+            (has(t.date) ? '<span class="card-date">' + esc(t.date) + '</span>' : '') +
+            '<span class="card-place">' + esc(t.title || 'Untitled visit') + '</span>' +
+          '</h3>' +
           (meta.length ? '<p class="meta">' + meta.join('') + '</p>' : '') +
           (has(t.summary) ? '<p class="summary">' + esc(t.summary) + '</p>' : '') +
           hl +

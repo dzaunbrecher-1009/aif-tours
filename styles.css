@@ -219,11 +219,11 @@ section{padding:64px 0}
 
 .datechip{
   position:absolute;left:14px;top:14px;
-  background:rgba(255,255,255,.94);
+  background:rgba(255,255,255,.96);
   backdrop-filter:blur(6px);
   border-radius:9px;
-  padding:7px 11px;
-  font-size:12px;font-weight:600;letter-spacing:.02em;
+  padding:8px 13px;
+  font-size:14px;font-weight:700;letter-spacing:.01em;
   color:var(--ink);
   box-shadow:0 2px 8px rgba(26,25,23,.14);
 }
@@ -231,8 +231,19 @@ section{padding:64px 0}
 .tour-body{padding:22px 22px 0;flex:1}
 .tour h3{
   margin:0 0 10px;
+}
+.card-date{
+  display:block;
   font-family:Fraunces, Georgia, serif;
-  font-weight:600;font-size:21px;line-height:1.25;
+  font-weight:700;font-size:22px;line-height:1.2;
+  color:var(--ink);
+  margin-bottom:3px;
+}
+.card-place{
+  display:block;
+  font-family:Inter, system-ui, sans-serif;
+  font-weight:500;font-size:14.5px;
+  color:var(--ink-2);
 }
 .meta{
   margin:0 0 14px;
